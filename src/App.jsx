@@ -1,33 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react';
+import { Routes, Route, useLocation } from "react-router-dom";
+import Header from './Components/Header';
+import Navigation from './Components/Navigation';
+import Homepage from './Components/Homepage';
+import Articles from './Components/Articles';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [headerText, setHeaderText] = useState("");
+  const location = useLocation();
+
+  useEffect(() => {
+      const currentPath = location.pathname;
+      if (currentPath === '/') {
+        setHeaderText('Welcome to the Northcoders News Board');
+      }
+      else if (currentPath === '/articles') {
+        setHeaderText('Articles');
+      }
+  }, [location]);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+     <Header text={headerText} />
+     <Navigation/>
+     <Routes>
+      <Route path="/" element={<Homepage/>}/>
+      <Route path="/articles" element={<Articles/>}/>
+     </Routes>
     </>
   )
 }
