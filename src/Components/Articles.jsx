@@ -17,7 +17,7 @@ useEffect(() => {
         setIsLoading(false)
     })
     .catch((err) => {
-        setError({err})
+        setError(err.msg)
     })
 }, [])
 
@@ -26,7 +26,7 @@ function handleArticleSelect(articleId) {
 }
 
 if (error) {
-    return <ErrorPage message={"Sorry, we're unable to load articles at this time"}/>
+    return <ErrorPage message={"Sorry, we're unable to load articles at this time."}/>
 } else {
     return (
         <main>
