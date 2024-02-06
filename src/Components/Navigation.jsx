@@ -2,9 +2,12 @@ import { Link } from "react-router-dom";
 
 export default function Navigation () {
     return (
-        <nav>
+        <nav className="nav-bar">
             <Link to="/">
-            <button className="home-button">Back to Home</button>
+            <button className="nav-bar-button">Home</button>
+            </Link>
+            <Link to="/articles">
+            <button className="nav-bar-button">All Articles</button>
             </Link>
         </nav>
     )
