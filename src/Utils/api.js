@@ -20,4 +20,13 @@ export function getIndividualArticle(article_id) {
     })
 }
 
+export function getCommentsForArticle(article_id) {
+    return newsApi.get(`/articles/${article_id}/comments`)
+    .then((apiResponse) => {
+        const { data: { comments } } = apiResponse;
+        return comments;
+    })
+}
+
+
 

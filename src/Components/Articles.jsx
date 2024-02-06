@@ -33,7 +33,7 @@ if (error) {
         {isLoading ? (<p>Fetching articles...</p>) :
         (<section className="articles-list">
         {articles.map((article) => {
-            return <ArticleCard key={article.article_id} article_id={article.article_id} title={article.title} imageUrl={article.article_img_url} author={article.author} onSelectArticle={handleArticleSelect}/>
+            return <ArticleCard key={article.article_id} article_id={article.article_id} title={article.title} imageUrl={article.article_img_url} author={article.author} comment_count={article.comment_count} onSelectArticle={handleArticleSelect}/>
         })}
         </section>)}
         {selectedArticleId ? <ArticleDetail/> : null}
