@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getIndividualArticle } from "../Utils/api"
+import { getIndividualArticle, patchVotes } from "../Utils/api"
 import ErrorPage from "./ErrorPage";
 import CommentList from "./CommentList";
 
@@ -8,7 +8,9 @@ export default function ArticleDetail() {
 
     const [isLoading, setIsLoading] = useState(true);
     const [selectedArticle, setSelectedArticle] = useState(null);
-    const [error, setError] = useState(null);
+    const [articleLoadingError, setArticleLoadingError] = useState(null);
+    const [votes, setVotes] = useState(0);
+    const [patchVotesError, setPatchVotesError] = useState(null)
 
     const { article_id } = useParams();
 
@@ -16,13 +18,41 @@ export default function ArticleDetail() {
         getIndividualArticle(article_id)
         .then((article) => {
             setSelectedArticle(article)
+            setVotes(article.votes)
             setIsLoading(false)
         })
         .catch((err) => {
             setIsLoading(false)
-            setError({ err })
+            setArticleLoadingError(err.msg)
         })
     }, [article_id])
+
+    
+    function handleUpvote() {
+        setVotes((prevVotes) => prevVotes + 1)
+        patchVotes(article_id, 1)
+        .then(() => {
+            setPatchVotesError(null)
+        })
+        .catch((err) => {
+            setVotes((prevVotes) => prevVotes - 1)
+            setPatchVotesError(err.msg)
+        })
+    }
+
+    function handleDownvote() {
+        setVotes((prevVotes) => prevVotes - 1)
+        patchVotes(article_id, -1)
+        .then(() => {
+            setPatchVotesError(null)
+        })
+        .catch((err) => {
+            setVotes((prevVotes) => prevVotes + 1)
+            setPatchVotesError(err.msg)
+        })
+    }
+
+    const isNegative = votes.toString().startsWith("-");
 
     let formattedDate = ''
     if (selectedArticle) {
@@ -30,8 +60,8 @@ export default function ArticleDetail() {
         formattedDate = date.toLocaleDateString('en-GB');
     }
 
-    if (error) {
-        return <ErrorPage message={"Sorry, we've experienced an issue loading this article"}/>
+    if (articleLoadingError) {
+        return <ErrorPage message={"Sorry, we've experienced an issue loading this article."}/>
     } else {
         return (
         <main className="article-page-container">
@@ -43,7 +73,9 @@ export default function ArticleDetail() {
         <h3>{formattedDate}</h3>
         <img className="article-image" src={selectedArticle.article_img_url} alt={`image for article titled ${selectedArticle.title}`}/>
         <p className="article-text">{selectedArticle.body}</p>
-        <button>⬆️ {selectedArticle.votes}</button>
+        <button className="vote-button" onClick={() => handleUpvote()}>⬆️ {isNegative ? null : `${votes}`}</button>
+        <button className="vote-button" onClick={() => handleDownvote()}>⬇️ {isNegative ? `${-votes}` : null}</button>
+        { patchVotesError ? <p>Something went wrong, please try again.</p> : null}
         </article>
         <h3>Comments</h3>
         <CommentList/>

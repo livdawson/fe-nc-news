@@ -45,20 +45,11 @@
   font-weight: 500;
 }
 
-.nav-bar-button:hover {
-  background-color: #2980b9;
-  color: white;
-}
-
 .error-return-home-button {
   cursor: pointer;
   font-weight: 500;
 }
 
-.error-return-home-button:hover {
-  background-color: #2980b9;
-  color: white;
-}
 
 .go-to-articles-button {
   width: 400px; 
@@ -66,11 +57,6 @@
   font-size: 20px; 
   cursor: pointer;
   white-space: nowrap;
-}
-
-.go-to-articles-button:hover {
-  background-color: #2980b9; 
-  color: white;
 }
 
 .articles-list {
@@ -141,4 +127,9 @@
 
 .comment-card p {
   margin-bottom: 12px;
+}
+
+button:hover {
+  background-color: #2980b9; 
+  color: white;
 }
