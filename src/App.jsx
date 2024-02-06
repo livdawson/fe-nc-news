@@ -4,6 +4,7 @@ import Header from './Components/Header';
 import Navigation from './Components/Navigation';
 import Homepage from './Components/Homepage';
 import Articles from './Components/Articles';
+import ArticleDetail from './Components/ArticleDetail';
 import './App.css'
 
 function App() {
@@ -15,9 +16,10 @@ function App() {
       const currentPath = location.pathname;
       if (currentPath === '/') {
         setHeaderText('Welcome to the Northcoders News Board');
-      }
-      else if (currentPath === '/articles') {
+      } else if (currentPath === '/articles') {
         setHeaderText('Articles');
+      } else if (/^\/articles\/\d+$/.test(currentPath)) {
+        setHeaderText('You are reading...')
       }
   }, [location]);
 
@@ -28,6 +30,7 @@ function App() {
      <Routes>
       <Route path="/" element={<Homepage/>}/>
       <Route path="/articles" element={<Articles/>}/>
+      <Route path="/articles/:article_id" element={<ArticleDetail/>}/>
      </Routes>
     </>
   )
