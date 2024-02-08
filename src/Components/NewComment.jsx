@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { getUsers, postComment } from "../Utils/api";
 import { useParams } from "react-router-dom";
 
-export default function NewComment({ addCommentOpen, setComments }) {
+export default function NewComment({ setComments }) {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedUser, setSelectedUser] = useState(null);
@@ -12,7 +12,6 @@ export default function NewComment({ addCommentOpen, setComments }) {
   const [commentInput, setCommentInput] = useState("");
   const [usersLoadingError, setUsersLoadingError] = useState(null);
   const [commentPostingError, setCommentPostingError] = useState(null);
-//   const [commentSubmitted, setCommentSubmitted] = useState(false);
 
   const { article_id } = useParams();
 
@@ -62,7 +61,6 @@ export default function NewComment({ addCommentOpen, setComments }) {
 
     return (
       <section className="add-comment-box">
-        {addCommentOpen ? (
           <form onSubmit={handleSubmit}>
             {usersLoadingError ? <p>Sorry, we're unable to load users at this time.</p> :
             <section>
@@ -99,7 +97,6 @@ export default function NewComment({ addCommentOpen, setComments }) {
           </section> }
           </section>}
           </form>
-        ) : null }
       </section>
     )
   }
