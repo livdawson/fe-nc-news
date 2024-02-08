@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getIndividualArticle, patchVotes } from "../Utils/api"
 import ErrorPage from "./ErrorPage";
 import CommentList from "./CommentList";
+import Expandable from "./Expandable";
 
 export default function ArticleDetail() {
 
@@ -10,7 +11,7 @@ export default function ArticleDetail() {
     const [selectedArticle, setSelectedArticle] = useState(null);
     const [articleLoadingError, setArticleLoadingError] = useState(null);
     const [votes, setVotes] = useState(0);
-    const [patchVotesError, setPatchVotesError] = useState(null)
+    const [votePatchingError, setVotePatchingError] = useState(null)
 
     const { article_id } = useParams();
 
@@ -32,11 +33,11 @@ export default function ArticleDetail() {
         setVotes((prevVotes) => prevVotes + 1)
         patchVotes(article_id, 1)
         .then(() => {
-            setPatchVotesError(null)
+            setVotePatchingError(null)
         })
         .catch((err) => {
             setVotes((prevVotes) => prevVotes - 1)
-            setPatchVotesError(err.msg)
+            setVotePatchingError(err.msg)
         })
     }
 
@@ -44,11 +45,11 @@ export default function ArticleDetail() {
         setVotes((prevVotes) => prevVotes - 1)
         patchVotes(article_id, -1)
         .then(() => {
-            setPatchVotesError(null)
+            setVotePatchingError(null)
         })
         .catch((err) => {
             setVotes((prevVotes) => prevVotes + 1)
-            setPatchVotesError(err.msg)
+            setVotePatchingError(err.msg)
         })
     }
 
@@ -75,9 +76,8 @@ export default function ArticleDetail() {
         <p className="article-text">{selectedArticle.body}</p>
         <button className="vote-button" onClick={() => handleUpvote()}>⬆️ {isNegative ? null : `${votes}`}</button>
         <button className="vote-button" onClick={() => handleDownvote()}>⬇️ {isNegative ? `${-votes}` : null}</button>
-        { patchVotesError ? <p>Something went wrong, please try again.</p> : null}
+        { votePatchingError ? <p>Something went wrong, please try again.</p> : null}
         </article>
-        <h3>Comments</h3>
         <CommentList/>
         </section>)}
         </main>

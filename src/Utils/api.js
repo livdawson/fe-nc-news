@@ -37,5 +37,22 @@ export function patchVotes(article_id, votes) {
     })
 }
 
+export function getUsers() {
+    return newsApi.get('/users')
+    .then((apiResponse) => {
+        const { data: { users } } = apiResponse;
+        return users;
+    })
+}
+
+export function postComment(article_id, username, body) {
+    return newsApi.post(`articles/${article_id}/comments`, {
+        username: username,
+        body: body
+    })
+    .then((apiResponse) => {
+        return apiResponse
+    })
+}
 
 
