@@ -129,7 +129,49 @@
   margin-bottom: 12px;
 }
 
+button {
+  margin: 8px;
+}
+
 button:hover {
   background-color: #2980b9; 
   color: white;
 }
+
+.add-comment-box {
+  background-color: #68aedd; 
+  padding: 5px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.user-option {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  margin-right: 8px;
+  width: 24px;
+  height: 24px;
+}
+
+#select-user {
+  margin: 10px;
+}
+
+#comment-body {
+  width: 600px;
+}
+
+#submit-comment-button {
+  margin: 10px;
+}
+
+.logged-in-user-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
