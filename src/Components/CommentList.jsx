@@ -10,7 +10,6 @@ export default function CommentList() {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [addCommentOpen, setAddCommentOpen] = useState(false);
 
   const { article_id } = useParams();
 
@@ -26,10 +25,6 @@ export default function CommentList() {
       });
   }, [article_id, comments]);
 
-  function handleClick() {
-    setAddCommentOpen(true);
-  }
-
   if (error) {
     return (
       <ErrorPage
@@ -44,8 +39,8 @@ export default function CommentList() {
         ) : (
           <section className="article-comments">
             <h3>Comments</h3>
-            <Expandable showButton={"+ Add a comment"} onToggle={handleClick}>
-                <NewComment addCommentOpen={addCommentOpen} setComments={setComments}/>
+            <Expandable showButton={"+ Add a comment"}>
+                <NewComment setComments={setComments}/>
             </Expandable>
             {comments.length === 0 ? (
                 <p>No comments yet</p>
