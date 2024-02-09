@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getIndividualArticle, patchVotes } from "../Utils/api"
-import ErrorPage from "./ErrorPage";
+import Error from "./Error";
 import CommentList from "./CommentList";
-import Expandable from "./Expandable";
 
 export default function ArticleDetail() {
 
@@ -62,7 +61,7 @@ export default function ArticleDetail() {
     }
 
     if (articleLoadingError) {
-        return <ErrorPage message={"Sorry, we've experienced an issue loading this article."}/>
+        return <Error message={"Sorry, we've experienced an issue loading this article."}/>
     } else {
         return (
         <main className="article-page-container">

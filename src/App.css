@@ -40,6 +40,25 @@
   right: 0px;
 }
 
+.nav--current-user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: 1px solid #2980b9;
+  border-radius: 15px;
+  background-color: white;
+  padding: 2px;
+  font-weight: bold;
+}
+
+#current-user-avatar {
+  max-width: 30px;
+  margin-left: 5px;
+}
+
 .nav-bar-button {
   cursor: pointer;
   font-weight: 500;
@@ -143,6 +162,7 @@ button:hover {
   padding: 5px;
   border-radius: 15px;
   margin-bottom: 15px;
+  text-align: center;
 }
 
 .user-option {
@@ -152,26 +172,63 @@ button:hover {
 
 .user-avatar {
   margin-right: 8px;
-  width: 24px;
-  height: 24px;
-}
-
-#select-user {
-  margin: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 15%;
 }
 
 #comment-body {
+  margin-top: 10px;
   width: 600px;
+  padding: 5px;
 }
 
 #submit-comment-button {
   margin: 10px;
 }
 
-.logged-in-user-container {
+.users-list {
   display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-around;
+  list-style-type: none;       
+  padding: 0;                  
+  margin: 0;                
 }
 
+.users-list img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.custom-dialog {
+  max-width: md;
+  width: 100%;
+}
+
+.confirm-box {
+  position: relative;
+  padding: 6px;
+  text-align: center;
+}
+
+#confirm-button:hover {
+  background-color: red
+}
+
+.change-user-box {
+  position: relative;
+  padding: 6px;
+  text-align: center;
+}
+
+.current-user {
+  border: 1px solid #2980b9;
+  border-radius: 15px;
+  padding: 5px;
+}
+
+.close-dialog-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

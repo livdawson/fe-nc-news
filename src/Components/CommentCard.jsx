@@ -1,4 +1,6 @@
-export default function CommentCard({body, author, created_at, votes}) {
+import DeleteCommentButton from "./DeleteCommentButton";
+
+export default function CommentCard({comment, body, author, created_at, votes, comment_id, setComments, setCommentDeleted}) {
     
     const isNegative = votes.toString().startsWith("-");
     
@@ -15,6 +17,7 @@ export default function CommentCard({body, author, created_at, votes}) {
             <button>
                 {isNegative ? `⬇️ ${-votes}` : `⬆️ ${votes}`}
             </button>
+            <DeleteCommentButton comment={comment} author={author} comment_id={comment_id} setComments={setComments} setCommentDeleted={setCommentDeleted}/>
         </section>
     )
 }

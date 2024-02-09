@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
+import CurrentUser from "./CurrentUser";
 
 export default function Navigation () {
+
     return (
+        <div>
         <nav className="nav-bar">
             <Link to="/">
             <button className="nav-bar-button">Home</button>
@@ -10,5 +13,7 @@ export default function Navigation () {
             <button className="nav-bar-button">All Articles</button>
             </Link>
         </nav>
+        <CurrentUser className={"nav--current-user"}/>
+        </div>
     )
 }
