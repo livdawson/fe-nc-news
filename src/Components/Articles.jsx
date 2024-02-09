@@ -4,6 +4,8 @@ import ArticleCard from "./ArticleCard";
 import ArticleDetail from "./ArticleDetail";
 import Error from "./Error";
 import TopicSelector from "./TopicSelector";
+import SortArticles from "./SortArticles";
+import Expandable from "./Expandable";
 
 export default function Articles() {
   const [articles, setArticles] = useState([]);
@@ -41,6 +43,9 @@ export default function Articles() {
         ) : (
           <section>
             <TopicSelector topics={topics} selectedTopic={selectedTopic} setSelectedTopic={setSelectedTopic}/>
+            <Expandable showButton={"Sort"}>
+                <SortArticles/>
+            </Expandable>
             <div className="articles-list">
               {articles.map((article) => {
                 return (
