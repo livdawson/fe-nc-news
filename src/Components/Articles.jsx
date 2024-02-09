@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getAllArticles } from "../Utils/api";
 import ArticleCard from "./ArticleCard";
 import ArticleDetail from "./ArticleDetail";
-import ErrorPage from "./ErrorPage";
+import Error from "./Error";
 
 export default function Articles() {
     const [articles, setArticles] = useState([])
@@ -26,7 +26,7 @@ function handleArticleSelect(articleId) {
 }
 
 if (error) {
-    return <ErrorPage message={"Sorry, we're unable to load articles at this time."}/>
+    return <Error message={"Sorry, we're unable to load articles at this time."}/>
 } else {
     return (
         <main>

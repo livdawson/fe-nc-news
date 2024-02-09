@@ -55,4 +55,15 @@ export function postComment(article_id, username, body) {
     })
 }
 
+export function deleteComment(comment_id) {
+    return newsApi.delete(`/comments/${comment_id}`)
+    .then((apiResponse) => {
+        return apiResponse
+    })
+    .catch((err) => {
+        return err;
+    })
+
+}
+
 

@@ -4,12 +4,13 @@ import { getCommentsForArticle } from "../Utils/api";
 import CommentCard from "./CommentCard";
 import NewComment from "./NewComment";
 import Expandable from "./Expandable";
-import ErrorPage from "./ErrorPage";
+import Error from "./Error";
 
 export default function CommentList() {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [commentDeleted, setCommentDeleted] = useState(false);
 
   const { article_id } = useParams();
 
@@ -27,7 +28,7 @@ export default function CommentList() {
 
   if (error) {
     return (
-      <ErrorPage
+      <Error
         message={"Sorry, we're unable to load comments at this time"}
       />
     );
@@ -49,14 +50,19 @@ export default function CommentList() {
                         return (
                             <CommentCard
                             key={comment.comment_id}
-                    body={comment.body}
-                    author={comment.author}
-                    created_at={comment.created_at}
-                    votes={comment.votes}
+                            comment={comment}
+                            body={comment.body}
+                            author={comment.author}
+                            created_at={comment.created_at}
+                            votes={comment.votes}
+                            comment_id={comment.comment_id}
+                            setComments={setComments}
+                            setCommentDeleted={setCommentDeleted}
                     />
                     );
               })
             )}
+            { commentDeleted ? <p>Comment deleted</p> : null}
           </section>
         )}
       </section>

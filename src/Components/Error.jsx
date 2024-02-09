@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function ErrorPage({ message }) {
+export default function Error({ message }) {
     return (
         <section>
         <p>{message}</p>
