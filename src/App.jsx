@@ -7,24 +7,27 @@ import Homepage from './Components/Homepage';
 import Articles from './Components/Articles';
 import ArticleDetail from './Components/ArticleDetail';
 import './App.css'
-import ChangeUser from './Components/ChangeUser';
 
 function App() {
 
   const [loggedInUser, setLoggedInUser] = useState({username: "tickle122", avatar_url: "https://vignette.wikia.nocookie.net/mrmen/images/d/d6/Mr-Tickle-9a.png/revision/latest?cb=20180127221953"})
   const [headerText, setHeaderText] = useState("");
   const location = useLocation();
+  const currentPath = location.pathname + location.search;
 
   useEffect(() => {
-      const currentPath = location.pathname;
       if (currentPath === '/') {
         setHeaderText('Welcome to the Northcoders News Board');
       } else if (currentPath === '/articles') {
-        setHeaderText('Articles');
+        setHeaderText('All Articles');
       } else if (/^\/articles\/\d+$/.test(currentPath)) {
         setHeaderText('You are reading...')
+      } else if (currentPath.startsWith('/articles?topic=')) {
+        const searchParams = new URLSearchParams(location.search);
+        const topic = searchParams.get('topic');
+        setHeaderText(`Articles about ${topic.charAt(0).toUpperCase()}${topic.slice(1)}`)
       }
-  }, [location]);
+  }, [currentPath]);
 
   return (
     <div>

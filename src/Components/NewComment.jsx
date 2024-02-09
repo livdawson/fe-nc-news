@@ -5,7 +5,7 @@ import UserContext from "./UserContext";
 
 export default function NewComment({ setComments }) {
   const [commentInput, setCommentInput] = useState("");
-  const [commentPostingError, setCommentPostingError] = useState(null);
+  const [error, setError] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const { loggedInUser } = useContext(UserContext);
@@ -27,13 +27,13 @@ export default function NewComment({ setComments }) {
       .then(() => {
         setCommentInput("");
         setIsSubmitted(false)
-        setCommentPostingError(null);
+        setError(null);
       })
       .catch((err) => {
         setComments((prevComments) =>
           prevComments.filter((comment) => comment !== newComment)
         );
-        setCommentPostingError(err.msg);
+        setError(err.msg);
       });
   }
 
@@ -52,7 +52,7 @@ export default function NewComment({ setComments }) {
         <button type="submit" id="submit-comment-button" disabled={isSubmitted}>
           Submit
         </button>
-        {commentPostingError ? (
+        {error ? (
           <p>Something went wrong, please try again</p>
         ) : null}
       </form>
