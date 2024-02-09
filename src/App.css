@@ -34,7 +34,7 @@
 }
 
 .nav-bar {
-  width: 150px;
+  display: flex;
   position: fixed;
   top: 0px;
   right: 0px;

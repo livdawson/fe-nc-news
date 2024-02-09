@@ -4,8 +4,12 @@ const newsApi = axios.create({
     baseURL: 'https://northcoders-news-board.onrender.com/api'
 })
 
-export function getAllArticles() {
-    return newsApi.get("/articles")
+export function getArticles(selectedTopic) {
+    let url = "/articles"
+    if (selectedTopic) {
+        url += `?topic=${selectedTopic}`
+    }
+    return newsApi.get(url)
     .then((apiResponse) => {
         const { data: { articles } } = apiResponse
         return articles
@@ -46,7 +50,7 @@ export function getUsers() {
 }
 
 export function postComment(article_id, username, body) {
-    return newsApi.post(`articles/${article_id}/comments`, {
+    return newsApi.post(`/articles/${article_id}/comments`, {
         username: username,
         body: body
     })
@@ -60,10 +64,14 @@ export function deleteComment(comment_id) {
     .then((apiResponse) => {
         return apiResponse
     })
-    .catch((err) => {
-        return err;
-    })
+}
 
+export function getTopics() {
+    return newsApi.get('/topics')
+    .then((apiResponse) => {
+        const { data: { topics } } = apiResponse;
+        return topics;
+    })
 }
 
 
