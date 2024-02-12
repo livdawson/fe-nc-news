@@ -13,10 +13,12 @@ export default function Articles() {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedArticleId, setSelectedArticleId] = useState(null);
   const [selectedTopic, setSelectedTopic] = useState(null);
+  const [sortBy, setSortBy] = useState(null);
+  const [order, setOrder] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    Promise.all([getArticles(selectedTopic), getTopics()])
+    Promise.all([getArticles(selectedTopic, sortBy, order), getTopics()])
     .then(([articles, topics]) => {
         setArticles(articles);
         setTopics(topics);
@@ -25,7 +27,7 @@ export default function Articles() {
     .catch((err) => {
         setError(err.msg);
     });
-  }, [selectedTopic]);
+  }, [selectedTopic, sortBy, order]);
 
   function handleArticleSelect(articleId) {
     setSelectedArticleId(articleId);
@@ -37,14 +39,14 @@ export default function Articles() {
     );
   } else {
     return (
-      <main>
+      <main className="articles-page">
         {isLoading ? (
           <p>Fetching articles...</p>
         ) : (
           <section>
             <TopicSelector topics={topics} selectedTopic={selectedTopic} setSelectedTopic={setSelectedTopic}/>
             <Expandable showButton={"Sort"}>
-                <SortArticles/>
+                <SortArticles sortBy={sortBy} setSortBy={setSortBy} order={order} setOrder={setOrder}/>
             </Expandable>
             <div className="articles-list">
               {articles.map((article) => {

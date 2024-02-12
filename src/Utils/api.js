@@ -4,11 +4,18 @@ const newsApi = axios.create({
     baseURL: 'https://northcoders-news-board.onrender.com/api'
 })
 
-export function getArticles(selectedTopic) {
-    let url = "/articles"
+export function getArticles(selectedTopic, sortBy, order) {
+    let url = "/articles?"
     if (selectedTopic) {
-        url += `?topic=${selectedTopic}`
+        url += `topic=${selectedTopic}&`
     }
+    if (sortBy) {
+        url += `sort_by=${sortBy}&`
+    }
+    if (order) {
+        url += `order=${order}`
+    }
+    
     return newsApi.get(url)
     .then((apiResponse) => {
         const { data: { articles } } = apiResponse
