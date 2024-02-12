@@ -233,9 +233,9 @@ button:hover {
   right: 0;
 }
 
-.sorting-container {
-  text-align: center;
+.sort-articles-box {
   width: 250px;
   padding: 10px;
   border: 1px solid #ccc;
+  margin: auto; /* Center horizontally */
 }

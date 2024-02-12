@@ -11,7 +11,7 @@ export default function TopicSelector({topics, selectedTopic, setSelectedTopic})
               <Link to={`/articles?topic=${topic.slug}`}>
                 <button
                 key={index}
-                value={selectedTopic}
+                value={topic.slug}
                 onClick={() => setSelectedTopic(topic.slug)}
                 disabled={selectedTopic === topic.slug}
                 >
