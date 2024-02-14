@@ -8,7 +8,6 @@ export default function DeleteCommentButton({
   author,
   comment_id,
   setComments,
-  setCommentDeleted,
 }) {
   const { loggedInUser } = useContext(UserContext);
   const [error, setError] = useState(null);

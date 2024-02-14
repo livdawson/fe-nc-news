@@ -10,7 +10,6 @@ export default function CommentList() {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [commentDeleted, setCommentDeleted] = useState(false);
 
   const { article_id } = useParams();
 
@@ -57,12 +56,10 @@ export default function CommentList() {
                             votes={comment.votes}
                             comment_id={comment.comment_id}
                             setComments={setComments}
-                            setCommentDeleted={setCommentDeleted}
                     />
                     );
               })
             )}
-            { commentDeleted ? <p>Comment deleted</p> : null}
           </section>
         )}
       </section>
