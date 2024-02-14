@@ -148,15 +148,6 @@
   margin-bottom: 12px;
 }
 
-button {
-  margin: 8px;
-}
-
-button:hover {
-  background-color: #2980b9; 
-  color: white;
-}
-
 .add-comment-box {
   background-color: #68aedd; 
   padding: 5px;
@@ -165,14 +156,14 @@ button:hover {
   text-align: center;
 }
 
-#comment-body {
+.comment-body {
   margin-top: 10px;
   width: 600px;
   padding: 5px;
 }
 
 @media (max-width: 600px) {
-  #comment-body {
+  .comment-body {
     width: 300px;
   }
 }
@@ -227,6 +218,7 @@ button:hover {
   padding: 6px;
   text-align: center;
 }
+
 
 .current-user {
   border: 1px solid #2980b9;

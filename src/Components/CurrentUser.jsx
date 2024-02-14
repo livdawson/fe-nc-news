@@ -28,6 +28,7 @@ export default function CurrentUser({className}) {
         className="current-user-avatar"
         src={loggedInUser.avatar_url}
         alt={`avatar for user {loggedInUser.username}`}
+        onClick={() => setOpenDialog(true)}
         /> 
       <p>{loggedInUser.username}</p>
       <button onClick={() => setOpenDialog(true)}>Change User</button>

@@ -42,6 +42,7 @@ export default function NewComment({ setComments }) {
       <form onSubmit={handleSubmit}>
           <label htmlFor="comment-body"></label>
           <textarea
+            className="comment-body"
             id="comment-body"
             name="comment-body"
             placeholder="Add a comment..."
