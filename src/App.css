@@ -246,3 +246,10 @@ button:hover {
   border: 1px solid #ccc;
   margin: auto;
 }
+
+.feedback-pop-up {
+  position: relative;
+  padding: 6px;
+  text-align: center;
+}
+

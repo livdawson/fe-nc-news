@@ -2,11 +2,13 @@ import { useState, useContext } from "react";
 import { postComment } from "../Utils/api";
 import { useParams } from "react-router-dom";
 import UserContext from "./UserContext";
+import FeedbackPopUp from "./FeedbackPopUp";
 
 export default function NewComment({ setComments }) {
   const [commentInput, setCommentInput] = useState("");
   const [error, setError] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false);
 
   const { loggedInUser } = useContext(UserContext);
   const username = loggedInUser.username;
@@ -23,10 +25,11 @@ export default function NewComment({ setComments }) {
       comment_id: username,
     };
     setComments((prevComments) => [...prevComments, newComment]);
+    setOpenDialog(true);
     postComment(article_id, username, commentInput)
       .then(() => {
         setCommentInput("");
-        setIsSubmitted(false)
+        setIsSubmitted(false);
         setError(null);
       })
       .catch((err) => {
@@ -56,6 +59,9 @@ export default function NewComment({ setComments }) {
           <p>Something went wrong, please try again</p>
         ) : null}
       </form>
+      <FeedbackPopUp open={openDialog}
+        onClose={() => setOpenDialog(false)}
+        text={"✅ Your comment has been added!"}/>
     </section>
   );
 }
