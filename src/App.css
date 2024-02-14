@@ -161,6 +161,7 @@
   width: 600px;
   padding: 5px;
   background-color: white;
+  color: black;
 }
 
 @media (max-width: 600px) {
@@ -184,6 +185,7 @@
 
 #submit-comment-button {
   margin: 10px;
+  color: black;
 }
 
 .users-list {
