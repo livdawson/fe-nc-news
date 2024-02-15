@@ -21,7 +21,7 @@ export default function CommentList() {
       })
       .catch((err) => {
         setIsLoading(false);
-        setError({ err });
+        setError(err);
       });
   }, [article_id, comments]);
 

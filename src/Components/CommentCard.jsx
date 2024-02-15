@@ -1,8 +1,7 @@
 import DeleteCommentButton from "./DeleteCommentButton";
+import VoteOnComment from "./VoteOnComment";
 
 export default function CommentCard({comment, body, author, created_at, votes, comment_id, setComments}) {
-    
-    const isNegative = votes.toString().startsWith("-");
     
     const date = new Date(created_at);
     const formattedDate = date.toLocaleDateString('en-GB');
@@ -14,9 +13,7 @@ export default function CommentCard({comment, body, author, created_at, votes, c
             <h4>{formattedDate}</h4>
             </div>
             <p>{body}</p>
-            <button>
-                {isNegative ? `⬇️ ${-votes}` : `⬆️ ${votes}`}
-            </button>
+            <VoteOnComment comment_id={comment_id} existingVotes={votes}/>
             <DeleteCommentButton comment={comment} author={author} comment_id={comment_id} setComments={setComments}/>
         </section>
     )

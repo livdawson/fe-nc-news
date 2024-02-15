@@ -1,15 +1,13 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
-import { patchArticleVotes } from "../Utils/api";
+import { patchCommentVotes } from "../Utils/api";
 
-export default function VoteOnArticle({votes, setVotes}) {
+export default function VoteOnComment({ comment_id, existingVotes }) {
+    const [votes, setVotes] = useState(existingVotes);
     const [error, setError] = useState(null);
-
-    const { article_id } = useParams();
 
     function handleUpvote() {
         setVotes((prevVotes) => prevVotes + 1)
-        patchArticleVotes(article_id, 1)
+        patchCommentVotes(comment_id, 1)
         .then(() => {
             setError(null)
         })
@@ -21,7 +19,7 @@ export default function VoteOnArticle({votes, setVotes}) {
 
     function handleDownvote() {
         setVotes((prevVotes) => prevVotes - 1)
-        patchArticleVotes(article_id, -1)
+        patchCommentVotes(comment_id, -1)
         .then(() => {
             setError(null)
         })
@@ -33,7 +31,6 @@ export default function VoteOnArticle({votes, setVotes}) {
 
     return (
         <div>
-        <b>Votes:</b>
         <button className="vote-button" onClick={() => handleUpvote()}>⬆️</button>
         {votes}
         <button className="vote-button" onClick={() => handleDownvote()}>⬇️</button>

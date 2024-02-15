@@ -36,7 +36,7 @@ export default function NewComment({ setComments }) {
         setComments((prevComments) =>
           prevComments.filter((comment) => comment !== newComment)
         );
-        setError(err.msg);
+        setError(err);
       });
   }
 

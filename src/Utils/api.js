@@ -39,7 +39,7 @@ export function getCommentsForArticle(article_id) {
     })
 }
 
-export function patchVotes(article_id, votes) {
+export function patchArticleVotes(article_id, votes) {
     return newsApi.patch(`/articles/${article_id}`, {
          inc_votes: votes
     })
@@ -81,4 +81,11 @@ export function getTopics() {
     })
 }
 
-
+export function patchCommentVotes(comment_id, votes) {
+    return newsApi.patch(`/comments/${comment_id}`, {
+        inc_votes: votes
+   })
+    .then((apiResponse) => {
+       return apiResponse;
+    })
+}
