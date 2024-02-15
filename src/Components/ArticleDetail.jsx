@@ -22,7 +22,7 @@ export default function ArticleDetail() {
       })
       .catch((err) => {
         setIsLoading(false);
-        setError(err.msg);
+        setError(err);
       });
   }, [article_id]);
 

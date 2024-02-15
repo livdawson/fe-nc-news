@@ -183,10 +183,10 @@
   border-radius: 15%;
 }
 
-#submit-comment-button {
+/* .submit-comment-button {
   margin: 10px;
   color: black;
-}
+} */
 
 .users-list {
   display: flex;

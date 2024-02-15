@@ -25,7 +25,7 @@ export default function Articles() {
         setIsLoading(false);
     })
     .catch((err) => {
-        setError(err.msg);
+        setError(err);
     });
   }, [selectedTopic, sortBy, order]);
 

@@ -24,7 +24,7 @@ export default function DeleteCommentButton({
       })
       .catch((err) => {
         setComments((prevComments) => [...prevComments, comment]);
-        setError(err.msg);
+        setError(err);
       });
   }
 

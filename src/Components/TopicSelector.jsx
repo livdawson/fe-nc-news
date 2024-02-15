@@ -8,9 +8,8 @@ export default function TopicSelector({topics, selectedTopic, setSelectedTopic})
         View articles about:
         {topics.map((topic, index) => {
             return (
-              <Link to={`/articles?topic=${topic.slug}`}>
+              <Link to={`/articles?topic=${topic.slug}`} key={index}>
                 <button
-                key={index}
                 value={topic.slug}
                 onClick={() => setSelectedTopic(topic.slug)}
                 disabled={selectedTopic === topic.slug}

@@ -16,7 +16,7 @@ export default function Users() {
       })
       .catch((err) => {
         setIsLoading(false);
-        setError(err.msg);
+        setError(err);
       });
   }, []);
 
