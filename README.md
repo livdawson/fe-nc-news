@@ -1,8 +1,27 @@
-# React + Vite
+# Northcoders News Board
+ 
+Check out the live deployed web interface [here](https://nc-news-board.netlify.app).
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+The Northcoders News Board is a social news aggregation, web content rating and discussion website. Users can explore an array of user-curated articles divided into different topics. It offers a user-friendly space to read, sort, vote and comment on articles.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Back-End Repository 
+
+The Northcoders News Board relies on a custom API service that I developed to handle data retrieval and management. The repository for this API can be accessed [here](https://github.com/livdawson/nc-news/).
+
+## Prerequisites 
+
+Ensure that you have the following minimum versions installed to run the project:
+
+- Node.js: v21.0.0
+
+## Getting Started
+
+To get started with the project, follow these steps:
+
+1. Clone the repository locally, using the following command: git clone https://github.com/livdawson/fe-nc-news.git
+2. Navigate to the project directory with this command: cd fe-nc-news
+3. Install project dependencies, by running the following command: npm install
+4. Run the website locally, using the following command: npm run dev. 
+NOTE: By default, the app should be accessible on localhost:5173. However, your terminal will confirm which network port the app is running on.
