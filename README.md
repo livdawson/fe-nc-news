@@ -20,8 +20,23 @@ Ensure that you have the following minimum versions installed to run the project
 
 To get started with the project, follow these steps:
 
-1. Clone the repository locally, using the following command: git clone https://github.com/livdawson/fe-nc-news.git
-2. Navigate to the project directory with this command: cd fe-nc-news
-3. Install project dependencies, by running the following command: npm install
-4. Run the website locally, using the following command: npm run dev. 
+1. Clone the repository locally, using the following command: 
+```bash
+git clone https://github.com/livdawson/fe-nc-news.git
+```
+
+2. Navigate to the project directory with this command: 
+```bash
+cd fe-nc-news
+```
+
+3. Install project dependencies, by running the following command: 
+```bash
+npm install
+```
+
+4. Run the website locally, using the following command:
+```bash
+npm run dev. 
+```
 NOTE: By default, the app should be accessible on localhost:5173. However, your terminal will confirm which network port the app is running on.
