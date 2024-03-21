@@ -6,6 +6,7 @@ import Navigation from './Components/Navigation';
 import Homepage from './Components/Homepage';
 import Articles from './Components/Articles';
 import ArticleDetail from './Components/ArticleDetail';
+import Footer from './Components/Footer';
 import './App.css'
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
       <Route path="/articles" element={<Articles/>}/>
       <Route path="/articles/:article_id" element={<ArticleDetail/>}/>
      </Routes>
+     <Footer/>
      </UserContext.Provider>
     </div>
   )
