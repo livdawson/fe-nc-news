@@ -41,7 +41,7 @@ export default function Articles() {
     return (
       <main className="articles-page">
         {isLoading ? (
-          <p>Fetching articles...</p>
+          <p className="loading"><span class="fas fa-spinner fa-spin"></span> Fetching articles...</p>
         ) : (
           <section>
             <TopicSelector topics={topics} selectedTopic={selectedTopic} setSelectedTopic={setSelectedTopic}/>
