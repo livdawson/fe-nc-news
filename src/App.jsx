@@ -6,7 +6,6 @@ import Navigation from './Components/Navigation';
 import Homepage from './Components/Homepage';
 import Articles from './Components/Articles';
 import ArticleDetail from './Components/ArticleDetail';
-import Footer from './Components/Footer';
 import './App.css'
 
 function App() {
@@ -31,7 +30,7 @@ function App() {
   }, [currentPath]);
 
   return (
-    <div>
+      <div>
      <UserContext.Provider value={{loggedInUser, setLoggedInUser}}>
      <Header text={headerText} />
      <Navigation/>
@@ -40,9 +39,8 @@ function App() {
       <Route path="/articles" element={<Articles/>}/>
       <Route path="/articles/:article_id" element={<ArticleDetail/>}/>
      </Routes>
-     <Footer/>
      </UserContext.Provider>
-    </div>
+      </div>
   )
 }
 
