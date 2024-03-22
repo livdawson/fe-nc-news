@@ -30,7 +30,7 @@ function App() {
   }, [currentPath]);
 
   return (
-    <div>
+      <div>
      <UserContext.Provider value={{loggedInUser, setLoggedInUser}}>
      <Header text={headerText} />
      <Navigation/>
@@ -40,7 +40,7 @@ function App() {
       <Route path="/articles/:article_id" element={<ArticleDetail/>}/>
      </Routes>
      </UserContext.Provider>
-    </div>
+      </div>
   )
 }
 

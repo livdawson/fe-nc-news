@@ -35,7 +35,7 @@ export default function CommentList() {
     return (
       <section>
         {isLoading ? (
-          <p>Fetching comments...</p>
+          <p className="loading"><span class="fas fa-spinner fa-spin"></span> Fetching comments...</p>
         ) : (
           <section className="article-comments">
             <h3>Comments</h3>
