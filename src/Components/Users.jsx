@@ -26,7 +26,7 @@ export default function Users() {
     return (
       <main>
         {isLoading ? (
-          <p>Fetching users...</p>
+          <p className="loading"><span class="fas fa-spinner fa-spin"></span> Fetching users...</p>
         ) : (
           <ul className="users-list">
             {users.map((user) => {
