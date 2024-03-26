@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from "react-router-dom";
-import UserContext from './Components/UserContext';
-import Header from './Components/Header';
-import Navigation from './Components/Navigation';
-import Homepage from './Components/Homepage';
-import Articles from './Components/Articles';
-import ArticleDetail from './Components/ArticleDetail';
+import UserContext from './Components/Shared/UserContext';
+import Header from './Components/Shared/Header';
+import Navigation from './Components/Shared/Navigation';
+import Homepage from './Components/Homepage/Homepage';
+import Articles from './Components/Article/Articles';
+import ArticleDetail from './Components/Article/ArticleDetail';
 import './App.css'
 
 function App() {

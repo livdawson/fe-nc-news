@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import ChangeUser from "./ChangeUser";
-import UserContext from "./UserContext";
+import UserContext from "../Shared/UserContext";
 import { Avatar } from "@mui/material";
 
 export default function CurrentUser({className}) {

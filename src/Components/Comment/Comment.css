@@ -1,0 +1,43 @@
+.comment-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    padding: 5px;
+  }
+
+  .comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  
+  .comment-header h4 {
+    margin: 0;
+  }
+  
+  .comment-card p {
+    margin-bottom: 12px;
+  }
+  
+  .add-comment-box {
+    background-color: #68aedd;
+    padding: 5px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .comment-body {
+    margin-top: 10px;
+    width: 600px;
+    padding: 5px;
+    background-color: white;
+    color: black;
+  }
+
+  @media (max-width: 600px) {
+    .comment-body {
+      width: 300px;
+    }
+  }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { patchCommentVotes } from "../Utils/api";
+import { patchCommentVotes } from "../../Utils/api";
 
 export default function VoteOnComment({ comment_id, existingVotes }) {
     const [votes, setVotes] = useState(existingVotes);

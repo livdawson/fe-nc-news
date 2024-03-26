@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import LowerShapeDivider from "./LowerShapeDivider";
+import './Homepage.css'
 
 export default function Homepage() {
     return (

@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getCommentsForArticle } from "../Utils/api";
+import { getCommentsForArticle } from "../../Utils/api";
 import CommentCard from "./CommentCard";
 import NewComment from "./NewComment";
-import Expandable from "./Expandable";
-import Error from "./Error";
+import Expandable from "../Shared/Expandable";
+import Error from "../Shared/Error";
+import './Comment.css'
 
 export default function CommentList() {
   const [comments, setComments] = useState([]);
@@ -35,7 +36,7 @@ export default function CommentList() {
     return (
       <section>
         {isLoading ? (
-          <p className="loading"><span class="fas fa-spinner fa-spin"></span> Fetching comments...</p>
+          <p className="loading"><span className="fas fa-spinner fa-spin"></span> Fetching comments...</p>
         ) : (
           <section className="article-comments">
             <h3>Comments</h3>

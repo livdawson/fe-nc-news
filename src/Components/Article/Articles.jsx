@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { getArticles, getTopics} from "../Utils/api";
+import { getArticles, getTopics} from "../../Utils/api";
 import ArticleCard from "./ArticleCard";
 import ArticleDetail from "./ArticleDetail";
-import Error from "./Error";
+import Error from "../Shared/Error";
 import TopicSelector from "./TopicSelector";
 import SortArticles from "./SortArticles";
-import Expandable from "./Expandable";
+import Expandable from "../Shared/Expandable";
+import './Article.css'
 
 export default function Articles() {
   const [articles, setArticles] = useState([]);
@@ -41,7 +42,7 @@ export default function Articles() {
     return (
       <main className="articles-page">
         {isLoading ? (
-          <p className="loading"><span class="fas fa-spinner fa-spin"></span> Fetching articles...</p>
+          <p className="loading"><span className="fas fa-spinner fa-spin"></span> Fetching articles...</p>
         ) : (
           <section>
             <TopicSelector topics={topics} selectedTopic={selectedTopic} setSelectedTopic={setSelectedTopic}/>

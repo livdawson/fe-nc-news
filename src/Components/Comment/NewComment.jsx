@@ -1,8 +1,8 @@
 import { useState, useContext } from "react";
-import { postComment } from "../Utils/api";
+import { postComment } from "../../Utils/api";
 import { useParams } from "react-router-dom";
-import UserContext from "./UserContext";
-import FeedbackPopUp from "./FeedbackPopUp";
+import UserContext from "../Shared/UserContext";
+import FeedbackPopUp from "../Shared/FeedbackPopUp";
 
 export default function NewComment({ setComments }) {
   const [commentInput, setCommentInput] = useState("");

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import CurrentUser from "./CurrentUser";
+import CurrentUser from "../User/CurrentUser";
 
 export default function Navigation () {
 

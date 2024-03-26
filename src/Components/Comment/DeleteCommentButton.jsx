@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-import UserContext from "./UserContext";
-import { deleteComment } from "../Utils/api";
+import UserContext from "../Shared/UserContext";
+import { deleteComment } from "../../Utils/api";
 import ConfirmBox from "./ConfirmBox";
 
 export default function DeleteCommentButton({

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getIndividualArticle } from "../Utils/api";
-import Error from "./Error";
-import CommentList from "./CommentList";
+import { getIndividualArticle } from "../../Utils/api";
+import Error from "../Shared/Error";
+import CommentList from "../Comment/CommentList";
 import VoteOnArticle from "./VoteOnArticle";
 
 export default function ArticleDetail() {

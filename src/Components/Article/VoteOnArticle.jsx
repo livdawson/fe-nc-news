@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { patchArticleVotes } from "../Utils/api";
+import { patchArticleVotes } from "../../Utils/api";
 
 export default function VoteOnArticle({votes, setVotes}) {
     const [error, setError] = useState(null);

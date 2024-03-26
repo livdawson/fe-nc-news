@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { getUsers } from "../Utils/api";
+import { getUsers } from "../../Utils/api";
 import UserCard from "./UserCard";
-import Error from "./Error";
+import Error from "../Shared/Error";
+import './User.css'
 
 export default function Users() {
   const [users, setUsers] = useState([]);
@@ -26,7 +27,7 @@ export default function Users() {
     return (
       <main>
         {isLoading ? (
-          <p className="loading"><span class="fas fa-spinner fa-spin"></span> Fetching users...</p>
+          <p className="loading"><span className="fas fa-spinner fa-spin"></span> Fetching users...</p>
         ) : (
           <ul className="users-list">
             {users.map((user) => {
